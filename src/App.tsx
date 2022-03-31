@@ -7,6 +7,7 @@ import cavern from './assets/cavern.jpg';
 import darkForest from './assets/dark-forest.webp';
 import React, { createRef, useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const parallax: React.CSSProperties = {
   height: '100%',
@@ -63,6 +64,7 @@ const photoCircle: SxProps = {
 function App() {
   const isMobileView = useMediaQuery(`(max-width:900px)`);
   const [isStickyTitle, setIsStickyTitle] = useState(false);
+  const [showDownArrow, setShowDownArrow] = useState(true);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const titleRef = createRef<HTMLDivElement>();
@@ -83,6 +85,12 @@ function App() {
     setAnchorEl(null);
   }
 
+  const onDownArrowClick = () => {
+    const secondSectionTop = document.getElementById('about-the-book')?.offsetTop ?? 0;
+    const titleHeight = titleRef.current?.clientHeight ?? 0;
+    scrollRef?.current?.scrollTo({left: 0, top: (secondSectionTop - titleHeight - 100), behavior: "smooth"});
+  }
+
   const handleScroll = (event: React.UIEvent<HTMLElement>) => {
     const target = (event.target as HTMLDivElement);
     const titleHeight = titleRef.current?.clientHeight ?? 0;
@@ -97,11 +105,20 @@ function App() {
       setIsStickyTitle(false);
       return;
     }
+
+    if ( !showDownArrow && (scrollRef.current?.scrollTop ?? 0) <= 10) {
+      setShowDownArrow(true);
+    }
+
+    if ( showDownArrow && (scrollRef.current?.scrollTop ?? 0) > 10) {
+      setShowDownArrow(false);
+    }
   }
 
   return (
     <Box ref={scrollRef} sx={{height: '100%', width: '100%', overflow: 'auto'}} onScroll={handleScroll}>
 
+      {/* Navigation Menu */}
       <Box sx={{position: 'absolute', right: '1.75rem', background: '#858282', zIndex: 1, top: '0.5rem', boxShadow: 3, borderRadius: '0.5rem'}}>
         <IconButton id='navigation-button' aria-label='Navigation Menu' size='large' onClick={handleMenuButtonClick} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} aria-controls={open ? 'navigation-menu' : undefined}>
           <MenuIcon />
@@ -121,8 +138,14 @@ function App() {
           <MenuItem onClick={() => onMenuItemClick('about-the-author')}>About the Author</MenuItem>
         </Menu>
       </Box>
-      
 
+      {/* Scroll Down Arrow */}
+      {showDownArrow &&
+        <IconButton onClick={onDownArrowClick} sx={{position: 'absolute', background: '#858282', boxShadow: 3, zIndex: 1, left: '50%', transform: 'translateX(-50%)', bottom: '1rem'}}>
+          <ArrowDownwardIcon />
+        </IconButton>}
+      
+      {/* Title Seciton */}
       <Box sx={{...parallax, backgroundImage: `url(${titleBackground})`}}>
           <Box sx={{ ...title, ...centerContent, ...(isStickyTitle ? stickyTitle : nonStickyTitle), flexDirection: 'column'}} ref={titleRef}>
             <Grow in={true} timeout={1000}>
