@@ -1,11 +1,12 @@
 import './App.css';
-import { Box, Container, Grid, Grow, SxProps, useMediaQuery } from '@mui/material';
+import { Box, Container, Grid, Grow, SxProps, useMediaQuery, IconButton, Menu, MenuItem } from '@mui/material';
 import titleBackground from './assets/misty_mountains.jpg';
 import bookCover from './assets/book-cover.jpg';
 import authorPhoto from './assets/author-photo.jpg';
 import cavern from './assets/cavern.jpg';
 import darkForest from './assets/dark-forest.webp';
 import React, { createRef, useState } from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const parallax: React.CSSProperties = {
   height: '100%',
@@ -62,8 +63,25 @@ const photoCircle: SxProps = {
 function App() {
   const isMobileView = useMediaQuery(`(max-width:900px)`);
   const [isStickyTitle, setIsStickyTitle] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
   const titleRef = createRef<HTMLDivElement>();
+  const scrollRef = createRef<HTMLDivElement>();
   const amazonUrl = "https://www.amazon.com/Winds-Shadow-Wind-Whispers-Book/dp/B096HS1XM1";
+
+  const handleMenuButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const onMenuItemClick = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    scrollRef?.current?.scrollTo({left: 0, top: element?.offsetTop ?? 0, behavior: "smooth"});
+    handleMenuClose();
+  }
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  }
 
   const handleScroll = (event: React.UIEvent<HTMLElement>) => {
     const target = (event.target as HTMLDivElement);
@@ -82,7 +100,29 @@ function App() {
   }
 
   return (
-    <Box sx={{height: '100%', width: '100%', overflow: 'auto'}} onScroll={handleScroll}>
+    <Box ref={scrollRef} sx={{height: '100%', width: '100%', overflow: 'auto'}} onScroll={handleScroll}>
+
+      <Box sx={{position: 'absolute', right: '1.75rem', background: '#858282', zIndex: 1, top: '0.5rem', boxShadow: 3, borderRadius: '0.5rem'}}>
+        <IconButton id='navigation-button' aria-label='Navigation Menu' size='large' onClick={handleMenuButtonClick} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} aria-controls={open ? 'navigation-menu' : undefined}>
+          <MenuIcon />
+        </IconButton>
+        <Menu
+          id='navigation-menu'
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleMenuClose}
+          MenuListProps={{
+            'aria-labelledby': 'navigation-button',
+          }}
+        >
+          <MenuItem onClick={() => onMenuItemClick('title')}>Title</MenuItem>
+          <MenuItem onClick={() => onMenuItemClick('about-the-book')}>About the Book</MenuItem>
+          <MenuItem onClick={() => onMenuItemClick('get-a-copy')}>Get a Copy</MenuItem>
+          <MenuItem onClick={() => onMenuItemClick('about-the-author')}>About the Author</MenuItem>
+        </Menu>
+      </Box>
+      
+
       <Box sx={{...parallax, backgroundImage: `url(${titleBackground})`}}>
           <Box sx={{ ...title, ...centerContent, ...(isStickyTitle ? stickyTitle : nonStickyTitle), flexDirection: 'column'}} ref={titleRef}>
             <Grow in={true} timeout={1000}>
