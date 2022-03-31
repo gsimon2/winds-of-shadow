@@ -8,6 +8,7 @@ import darkForest from './assets/dark-forest.webp';
 import React, { createRef, useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { keyframes } from '@emotion/react';
 
 const parallax: React.CSSProperties = {
   height: '100%',
@@ -60,6 +61,24 @@ const photoCircle: SxProps = {
     marginLeft: '-12%' // Should be -25% for centered photos
   }
 }
+
+const downArrowAnimation = keyframes`
+  0% {
+    transform: scale(1,1) translate(0px, 0px);
+  }
+
+  30%{
+    transform: scale(1,0.8) translate(0px, 10px); 
+  }
+
+  75%{
+    transform: scale(1,1.1) translate(0px, -25px); 
+  }
+
+  100% {
+    transform: scale(1,1) translate(0px, 0px);
+  }
+`
 
 function App() {
   const isMobileView = useMediaQuery(`(max-width:900px)`);
@@ -141,9 +160,11 @@ function App() {
 
       {/* Scroll Down Arrow */}
       {showDownArrow &&
-        <IconButton onClick={onDownArrowClick} sx={{position: 'absolute', background: '#858282', boxShadow: 3, zIndex: 1, left: '50%', transform: 'translateX(-50%)', bottom: '1rem'}}>
-          <ArrowDownwardIcon />
-        </IconButton>}
+        <Grow in={true} timeout={1000} style={{ transitionDelay: `500ms`}}>
+          <IconButton onClick={onDownArrowClick} sx={{position: 'absolute', background: '#858282', boxShadow: 3, zIndex: 1, left: '50%', transform: 'translateX(-50%)', bottom: '1rem', animation: `${downArrowAnimation} 1.25s infinite`}}>
+            <ArrowDownwardIcon />
+          </IconButton>
+        </Grow>}
       
       {/* Title Seciton */}
       <Box sx={{...parallax, backgroundImage: `url(${titleBackground})`}}>
