@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/winds-of-shadow/static/css/main.96ac504b.css",
+    "main.js": "/winds-of-shadow/static/js/main.7440ed1f.js",
+    "static/js/787.8698b06c.chunk.js": "/winds-of-shadow/static/js/787.8698b06c.chunk.js",
+    "static/media/misty_mountains.jpg": "/winds-of-shadow/static/media/misty_mountains.3e547d16ea8a2367a1b9.jpg",
+    "static/media/cloudy-heavens.jpg": "/winds-of-shadow/static/media/cloudy-heavens.69d2d377f56d156d1c54.jpg",
+    "static/media/author-photo.jpg": "/winds-of-shadow/static/media/author-photo.775aad17d498aee3c685.jpg",
+    "index.html": "/winds-of-shadow/index.html",
+    "main.96ac504b.css.map": "/winds-of-shadow/static/css/main.96ac504b.css.map",
+    "main.7440ed1f.js.map": "/winds-of-shadow/static/js/main.7440ed1f.js.map",
+    "787.8698b06c.chunk.js.map": "/winds-of-shadow/static/js/787.8698b06c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.96ac504b.css",
+    "static/js/main.7440ed1f.js"
+  ]
+}
