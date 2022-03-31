@@ -161,7 +161,7 @@ function App() {
       {/* Scroll Down Arrow */}
       {showDownArrow &&
         <Grow in={true} timeout={1000} style={{ transitionDelay: `500ms`}}>
-          <IconButton onClick={onDownArrowClick} sx={{position: 'absolute', background: '#858282', boxShadow: 3, zIndex: 1, left: '50%', transform: 'translateX(-50%)', bottom: '1rem', animation: `${downArrowAnimation} 1.25s infinite`}}>
+          <IconButton onClick={onDownArrowClick} sx={{position: 'absolute', background: '#858282', boxShadow: 3, zIndex: 1, right: '50%', transform: 'translateX(-50%)', bottom: '1rem', animation: `${downArrowAnimation} 1.25s infinite`}}>
             <ArrowDownwardIcon />
           </IconButton>
         </Grow>}
