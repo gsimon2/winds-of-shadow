@@ -9,6 +9,7 @@ import React, { createRef, useState } from 'react';
 import ParallaxContainer from './components/ParallaxContainer';
 import NavButton from './components/NavButton';
 import ScrollDownArrow from './components/ScrollDownArrow';
+import ContentContainer from './components/ContentContainer';
 
 const title: React.CSSProperties = {
   display: 'flex',
@@ -35,13 +36,6 @@ const centerContent: React.CSSProperties = {
   justifyContent: 'center'
 }
 
-const descriptionContainer: React.CSSProperties = {
-  paddingTop: '1rem',
-  background: 'black',
-  color: 'white',
-  fontSize: '1.5rem'
-}
-
 const photoCircle: SxProps = {
   height: '400px',
   width: '400px',
@@ -52,7 +46,6 @@ const photoCircle: SxProps = {
     marginLeft: '-12%' // Should be -25% for centered photos
   }
 }
-
 
 
 function App() {
@@ -108,30 +101,16 @@ function App() {
           </Box>
       </ParallaxContainer>
 
-      <Box sx={descriptionContainer}>
-        <Box sx={{
-          maxWidth: '80rem',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          margin: 'auto',
-          padding: '1.5rem',
-          minHeight: '500px'
-        }}>
-          <Box sx={centerContent}>
-            <h2 id="about-the-book" >About the Book</h2>
-          </Box>
-          <p>A world hanging on the edge of chaos and darkness lies before Sean. One cold fateful night in the deep of winter a warrior named Taylor stumbles upon Sean alone in the mountains. Their meeting triggers Sean toward adventure in the world sprawled before him, one they must protect. At each step in the journey Sean faces task after task meeting Ancient’s and exploring the Southern Wasted Lands.</p>
-          <p>It is here that Sean pieces together who exactly the Proclaimer of Light is; the person destined to tip the scale of an eternal struggle of good versus evil. Can Sean discover what it means to be Ancient and save the world? Joining the war of Light against Dark, Sean unlocks the shrouded mystery of the hero: Orwick Stormbringer.</p>
-        </Box>
-      </Box>
-
+      <ContentContainer>
+        <h2 id="about-the-book" style={{textAlign: 'center'}}>About the Book</h2>
+        <p>A world hanging on the edge of chaos and darkness lies before Sean. One cold fateful night in the deep of winter a warrior named Taylor stumbles upon Sean alone in the mountains. Their meeting triggers Sean toward adventure in the world sprawled before him, one they must protect. At each step in the journey Sean faces task after task meeting Ancient’s and exploring the Southern Wasted Lands.</p>
+        <p>It is here that Sean pieces together who exactly the Proclaimer of Light is; the person destined to tip the scale of an eternal struggle of good versus evil. Can Sean discover what it means to be Ancient and save the world? Joining the war of Light against Dark, Sean unlocks the shrouded mystery of the hero: Orwick Stormbringer.</p>
+      </ContentContainer>
+      
       <ParallaxContainer imagePath={darkForest} style={{height: '300px', filter: 'brightness(0.75)'}} />
 
-      <Container sx={descriptionContainer}>
-        <Box sx={centerContent}>
-          <h2 id="get-a-copy">Get a Copy</h2>
-        </Box>
+      <ContentContainer>
+        <h2 id="get-a-copy" style={{textAlign: 'center'}}>Get a Copy</h2>
         <Grid container spacing={2} sx={{padding: '2rem 0'}}>
           <Grid item sx={centerContent} md={6} xs={12}>
             <p>Buy Now on <a href={amazonUrl} target="_blank" rel="noreferrer" >Amazon</a>!</p>
@@ -140,14 +119,12 @@ function App() {
             <img src={bookCover} alt="Winds of Shadow book cover" />
           </Grid>
         </Grid>
-      </Container>
+      </ContentContainer>
 
       <ParallaxContainer imagePath={cavern} style={{height: '300px', filter: 'brightness(0.75)'}} />
 
-      <Container sx={descriptionContainer}>
-        <Box sx={centerContent}>
-          <h2 id="about-the-author">About the Author</h2>
-        </Box>
+      <ContentContainer>
+        <h2 id="about-the-author" style={{textAlign: 'center'}}>About the Author</h2>
         <Grid container spacing={2} sx={{padding: '2rem 0'}}>
           <Grid item sx={centerContent} md={6} xs={12}>
             <Box sx={isMobileView ? photoCircle : {}}>
@@ -155,13 +132,13 @@ function App() {
             </Box>
           </Grid>
           <Grid item sx={centerContent} md={6} xs={12}>
-            <Box sx={{...centerContent, flexDirection: 'column', padding: '0 1.5rem', textAlign: 'center'}}>
+            <Box sx={{...centerContent, flexDirection: 'column', textAlign: 'center'}}>
               <p>Benjamin J Stegenga</p>
               <p>At a young age Ben took to reading like a bird to hunting worms. Each book conquered grew his imagination until one day reading simply did not seem enough. Taking pen in hand a story was written, the likes of which Ben had been wanting to read for years. Now as a published author to Winds of Shadow, once more Ben will take up pen to continue on the story and prepare book 2 in the series for release.</p>
             </Box>
           </Grid>
         </Grid>
-      </Container>
+      </ContentContainer>
     </Box>
   )
 }
