@@ -113,7 +113,7 @@ function App() {
         <h2 id="get-a-copy" style={{textAlign: 'center'}}>Get a Copy</h2>
         <Grid container spacing={2} sx={{padding: '2rem 0'}}>
           <Grid item sx={centerContent} md={6} xs={12}>
-            <p>Buy Now on <a href={amazonUrl} target="_blank" rel="noreferrer" >Amazon</a>!</p>
+            <p>Buy Now on <a href={amazonUrl} target="_blank" rel="noreferrer" style={{color: '#007bff'}} >Amazon</a>!</p>
           </Grid>
           <Grid item sx={centerContent} md={6} xs={12}>
             <img src={bookCover} alt="Winds of Shadow book cover" />
@@ -139,6 +139,10 @@ function App() {
           </Grid>
         </Grid>
       </ContentContainer>
+
+      <Box sx={{color: 'white', textAlign: 'center'}}>
+        <p>Copyright © BenjaminJStegenga. All rights reserved.</p>
+      </Box>
     </Box>
   )
 }
