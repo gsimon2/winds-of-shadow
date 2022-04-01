@@ -6,6 +6,7 @@ const ContentContainer: React.FC = ({children}) => {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
+      textAlign: 'center',
       paddingTop: '1rem',
       paddingX: '3rem',
       background: 'black',

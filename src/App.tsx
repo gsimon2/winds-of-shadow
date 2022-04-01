@@ -10,6 +10,7 @@ import NavButton from './components/NavButton';
 import ScrollDownArrow from './components/ScrollDownArrow';
 import ContentContainer from './components/ContentContainer';
 import { CssConstants } from './constants/CssConstants';
+import SocialMediaStack from './components/SocialMediaStack';
 
 const title: React.CSSProperties = {
   display: 'flex',
@@ -55,7 +56,7 @@ function App() {
   const titleRef = createRef<HTMLDivElement>();
   const scrollRef = createRef<HTMLDivElement>();
   const amazonUrl = "https://www.amazon.com/Winds-Shadow-Wind-Whispers-Book/dp/B096HS1XM1";
-
+  
   const handleScroll = (event: React.UIEvent<HTMLElement>) => {
     const target = (event.target as HTMLDivElement);
     const titleHeight = titleRef.current?.clientHeight ?? 0;
@@ -102,15 +103,17 @@ function App() {
       </ParallaxContainer>
 
       <ContentContainer>
-        <h2 id="about-the-book" style={{textAlign: 'center'}}>About the Book</h2>
+        <h2 id="about-the-book">About the Book</h2>
         <p>A world hanging on the edge of chaos and darkness lies before Sean. One cold fateful night in the deep of winter a warrior named Taylor stumbles upon Sean alone in the mountains. Their meeting triggers Sean toward adventure in the world sprawled before him, one they must protect. At each step in the journey Sean faces task after task meeting Ancient’s and exploring the Southern Wasted Lands.</p>
         <p>It is here that Sean pieces together who exactly the Proclaimer of Light is; the person destined to tip the scale of an eternal struggle of good versus evil. Can Sean discover what it means to be Ancient and save the world? Joining the war of Light against Dark, Sean unlocks the shrouded mystery of the hero: Orwick Stormbringer.</p>
+      
+        <SocialMediaStack/>
       </ContentContainer>
       
       <ParallaxContainer imagePath={darkForest} style={{height: '300px', filter: 'brightness(0.75)'}} />
 
       <ContentContainer>
-        <h2 id="get-a-copy" style={{textAlign: 'center'}}>Get a Copy</h2>
+        <h2 id="get-a-copy">Get a Copy</h2>
         <Grid container spacing={2} sx={{padding: '2rem 0'}}>
           <Grid item sx={centerContent} md={6} xs={12}>
             <p>Buy Now on <a href={amazonUrl} target="_blank" rel="noreferrer" style={{color: '#007bff'}} >Amazon</a>!</p>
@@ -124,8 +127,8 @@ function App() {
       <ParallaxContainer imagePath={cavern} style={{height: '300px', filter: 'brightness(0.75)'}} />
 
       <ContentContainer>
-        <h2 id="about-the-author" style={{textAlign: 'center'}}>About the Author</h2>
-        <Grid container spacing={2} sx={{padding: '2rem 0'}}>
+        <h2 id="about-the-author">About the Author</h2>
+        <Grid container spacing={2} >
           <Grid item sx={centerContent} lg={6} md={12} xs={12}>
             <Box sx={isMobileView ? photoCircle : {}}>
               <img src={authorPhoto} alt="Winds of Shadow author Benjamin J Stegenga" />
