@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/winds-of-shadow/static/css/main.0c68cb40.css",
-    "main.js": "/winds-of-shadow/static/js/main.0c4eddad.js",
+    "main.js": "/winds-of-shadow/static/js/main.e04e7224.js",
     "static/js/787.8698b06c.chunk.js": "/winds-of-shadow/static/js/787.8698b06c.chunk.js",
     "static/media/dark-forest.webp": "/winds-of-shadow/static/media/dark-forest.be8fcbe9307ca08b2678.webp",
     "static/media/misty_mountains.jpg": "/winds-of-shadow/static/media/misty_mountains.3e547d16ea8a2367a1b9.jpg",
@@ -9,11 +9,11 @@
     "static/media/author-photo.jpg": "/winds-of-shadow/static/media/author-photo.775aad17d498aee3c685.jpg",
     "index.html": "/winds-of-shadow/index.html",
     "main.0c68cb40.css.map": "/winds-of-shadow/static/css/main.0c68cb40.css.map",
-    "main.0c4eddad.js.map": "/winds-of-shadow/static/js/main.0c4eddad.js.map",
+    "main.e04e7224.js.map": "/winds-of-shadow/static/js/main.e04e7224.js.map",
     "787.8698b06c.chunk.js.map": "/winds-of-shadow/static/js/787.8698b06c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0c68cb40.css",
-    "static/js/main.0c4eddad.js"
+    "static/js/main.e04e7224.js"
   ]
 }
