@@ -9,6 +9,7 @@ import ParallaxContainer from './components/ParallaxContainer';
 import NavButton from './components/NavButton';
 import ScrollDownArrow from './components/ScrollDownArrow';
 import ContentContainer from './components/ContentContainer';
+import { CssConstants } from './constants/CssConstants';
 
 const title: React.CSSProperties = {
   display: 'flex',
@@ -48,7 +49,7 @@ const photoCircle: SxProps = {
 
 
 function App() {
-  const isMobileView = useMediaQuery(`(max-width:900px)`);
+  const isMobileView = useMediaQuery(`(max-width:${CssConstants.mobileBreakpoint})`);
   const [isStickyTitle, setIsStickyTitle] = useState(false);
   const [showDownArrow, setShowDownArrow] = useState(true);
   const titleRef = createRef<HTMLDivElement>();

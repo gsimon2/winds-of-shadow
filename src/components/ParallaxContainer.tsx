@@ -1,8 +1,9 @@
 import { Box, useMediaQuery } from '@mui/material';
 import React from 'react';
+import { CssConstants } from '../constants/CssConstants';
 
 const ParallaxContainer: React.FC<IParallaxContainerProps> = ({imagePath, children, style = {}}) => {
-  const isMobileView = useMediaQuery(`(max-width:900px)`);
+  const isMobileView = useMediaQuery(`(max-width:${CssConstants.mobileBreakpoint})`);
 
    const parallax: React.CSSProperties = {
       height: '100%',

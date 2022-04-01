@@ -1,9 +1,10 @@
 import { Box, IconButton, Menu, MenuItem, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
+import { CssConstants } from '../constants/CssConstants';
 
 const NavButton: React.FC<INavButtonProps> = ({scrollRef}) => {
-  const isMobileView = useMediaQuery(`(max-width:900px)`);
+  const isMobileView = useMediaQuery(`(max-width:${CssConstants.mobileBreakpoint})`);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Grow, IconButton, SxProps, useMediaQuery } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { keyframes } from '@emotion/react';
+import { CssConstants } from '../constants/CssConstants';
 
 const downArrowAnimation = keyframes`
   0% {
@@ -22,7 +23,7 @@ const downArrowAnimation = keyframes`
 `
 
 const ScrollDownArrow: React.FC<IScrollDownArrowProps> = ({scrollRef, titleRef}) => {
-  const isMobileView = useMediaQuery(`(max-width:900px)`);
+  const isMobileView = useMediaQuery(`(max-width:${CssConstants.mobileBreakpoint})`);
   const buttonSize = isMobileView ? 'medium' : 'large';
 
    const onDownArrowClick = () => {
