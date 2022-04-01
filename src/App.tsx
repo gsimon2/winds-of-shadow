@@ -38,13 +38,13 @@ const centerContent: React.CSSProperties = {
 }
 
 const photoCircle: SxProps = {
-  height: '400px',
-  width: '400px',
+  height: '300px',
+  width: '300px',
   overflow: 'hidden',
   borderRadius: '50%',
 
   'img': {
-    marginLeft: '-12%' // Should be -25% for centered photos
+    marginLeft: '-43%' // Adjust this dependent on centering of used photo
   }
 }
 
