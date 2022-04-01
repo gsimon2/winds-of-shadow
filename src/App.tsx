@@ -9,15 +9,7 @@ import React, { createRef, useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { keyframes } from '@emotion/react';
-
-const parallax: React.CSSProperties = {
-  height: '100%',
-  width: '100%',
-  backgroundAttachment: 'fixed',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'cover'
-}
+import ParallaxContainer from './components/ParallaxContainer';
 
 const title: React.CSSProperties = {
   display: 'flex',
@@ -167,7 +159,7 @@ function App() {
         </Grow>}
       
       {/* Title Seciton */}
-      <Box sx={{...parallax, backgroundImage: `url(${titleBackground})`}}>
+      <ParallaxContainer imagePath={titleBackground} >
           <Box sx={{ ...title, ...centerContent, ...(isStickyTitle ? stickyTitle : nonStickyTitle), flexDirection: 'column'}} ref={titleRef}>
             <Grow in={true} timeout={1000}>
               <h1 id="title" style={{margin: 0, fontSize: isMobileView ? '4rem' : '7rem'}}>
@@ -178,7 +170,7 @@ function App() {
               <p style={{position: "relative", fontSize: isMobileView ? '1.5rem' : '2rem', margin: 0}}>By Benjamin J Stegenga</p>
             </Grow>
           </Box>
-      </Box>
+      </ParallaxContainer>
 
       <Box sx={descriptionContainer}>
         <Box sx={{
@@ -198,7 +190,7 @@ function App() {
         </Box>
       </Box>
 
-      <Box sx={{...parallax, height: '300px', backgroundImage: `url(${darkForest})`, filter: 'brightness(0.75)'}} />
+      <ParallaxContainer imagePath={darkForest} style={{height: '300px', filter: 'brightness(0.75)'}} />
 
       <Container sx={descriptionContainer}>
         <Box sx={centerContent}>
@@ -214,7 +206,7 @@ function App() {
         </Grid>
       </Container>
 
-      <Box sx={{...parallax, height: '300px', backgroundImage: `url(${cavern})`, filter: 'brightness(0.75)'}} />
+      <ParallaxContainer imagePath={cavern} style={{height: '300px', filter: 'brightness(0.75)'}} />
 
       <Container sx={descriptionContainer}>
         <Box sx={centerContent}>
