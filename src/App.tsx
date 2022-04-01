@@ -1,5 +1,4 @@
-import './App.css';
-import { Box, Container, Grid, Grow, SxProps, useMediaQuery } from '@mui/material';
+import { Box, Grid, Grow, SxProps, useMediaQuery } from '@mui/material';
 import titleBackground from './assets/misty_mountains.jpg';
 import bookCover from './assets/book-cover.jpg';
 import authorPhoto from './assets/author-photo.jpg';
