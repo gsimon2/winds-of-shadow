@@ -126,15 +126,39 @@ function App() {
       <ContentContainer>
         <h2 id="about-the-author" style={{textAlign: 'center'}}>About the Author</h2>
         <Grid container spacing={2} sx={{padding: '2rem 0'}}>
-          <Grid item sx={centerContent} md={6} xs={12}>
+          <Grid item sx={centerContent} lg={6} md={12} xs={12}>
             <Box sx={isMobileView ? photoCircle : {}}>
               <img src={authorPhoto} alt="Winds of Shadow author Benjamin J Stegenga" />
             </Box>
           </Grid>
-          <Grid item sx={centerContent} md={6} xs={12}>
+          <Grid item sx={centerContent} lg={6} md={12} xs={12}>
             <Box sx={{...centerContent, flexDirection: 'column', textAlign: 'center'}}>
               <p>Benjamin J Stegenga</p>
-              <p>At a young age Ben took to reading like a bird to hunting worms. Each book conquered grew his imagination until one day reading simply did not seem enough. Taking pen in hand a story was written, the likes of which Ben had been wanting to read for years. Now as a published author to Winds of Shadow, once more Ben will take up pen to continue on the story and prepare book 2 in the series for release.</p>
+              <p>
+                Born July 1991 in Lansing Michigan, Benjamin Stegenga grew up in the charming town of Portland Michigan. Exploring books as a child, fantasy fiction adventures took hold of his interests. Depths inside the pages opened up worlds to wonders built out of imagination. Classic novels were introduced in the high school years and implanted into Ben a slumbering desire to write. On a trip to Rome with family, Ben’s desire to write bloomed into a hobby crafting a world of his own.
+              </p>
+              <p>
+                Choosing to attend Ferris State University as a college freshman bound for nursing, Ben found out this was the wrong career path to pursue. Writing in the college English class Ben showed a strong voice to form opinions, even better a voice to breathe life in a story. Leaving the university after a single year Ben chose to find a new path in life away from the medical field. Working in customer service for a software company formed in Michigan Ben set upon making a career to pursue his hobby of writing.
+              </p>
+            </Box>
+          </Grid>
+          <Grid item sx={centerContent} lg={12} md={12} xs={12}>
+            <Box sx={{...centerContent, flexDirection: 'column', textAlign: 'center'}}>
+              <p>
+                Putting pen to paper in 2013 the framework to Winds of Shadow began to be placed; pure creation fueled Ben. Several years passed with work on the story being sporadic – some authors have the talent to draw but not Ben who chose to create a Minecraft map representing the world. Completing the first draft Memorial Day weekend 2017 marked a milestone of triumph and beginning to many edits with rewrites. In that time a single story turned into plans for several books to bring the full vision to life.
+              </p>
+              <p>
+                The support of friends and family helped Ben reach publication. Countless hours listening to plot ideas, reading early drafts and giving advice turned this dream into reality. Spending weekends going on trips camping, visiting other states and celebrating special occasions with family kept Ben grounded. With special assistance of his dog, Zelda, Ben enjoys to spend free days leading up to publication exploring nature to gain inspiration. The next story lurks on the other side of the horizon waiting to be discovered.
+              </p>
+              <p>
+                Ben still writes part time while working at the software company full time. Having a stable job during the pandemic of 2020, a time of uncertainty, gave Ben much needed perspective. It is also what gave Ben the opportunity to keep writing for fun and pushing the series forward. Using this last year to grow personally and as a writer to create hope.
+              </p>
+              <p>
+                The hope is all readers enjoy the story told and become ensnared in the characters’ adventures. Formulate theories to where the next book leads and maybe it will inspire an idea to write a story - a story exists in every person waiting to be written.
+              </p>
+              <p/>
+              <p>Happy Reading!</p>
+              <p>Benjamin J. Stegenga</p>
             </Box>
           </Grid>
         </Grid>
