@@ -16,10 +16,10 @@ const SocialMediaStack: React.FC = () => {
       <Box sx={{...centerContent, flexDirection: 'column', mb: '2rem', mt:'5rem'}}>
          <Box>Follow Winds of Shadow on social media for the latest updates!</Box>
          <Stack direction='row' spacing={2} sx={{width: '100%', justifyContent: 'center', pt: '1rem'}}>
-         <IconButton size='medium' href={facebookUrl} sx={{background: 'white', borderRadius: '0.25rem'}}>
+         <IconButton size='medium' href={facebookUrl} target="_blank" rel="noreferrer" sx={{background: 'white', borderRadius: '0.25rem'}}>
             <FacebookIcon fontSize='large' sx={{color: '#007bff'}}/>
          </IconButton>
-         <IconButton size='medium' href={twitterUrl} sx={{background: 'white', borderRadius: '0.25rem'}}>
+         <IconButton size='medium' href={twitterUrl} target="_blank" rel="noreferrer" sx={{background: 'white', borderRadius: '0.25rem'}}>
             <TwitterIcon fontSize='large' sx={{color: '#1DA1F2'}}/>
          </IconButton>
          </Stack>
