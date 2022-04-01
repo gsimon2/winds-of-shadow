@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grow, IconButton } from '@mui/material';
+import { Box, Grow, IconButton, SxProps } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { keyframes } from '@emotion/react';
 
@@ -29,11 +29,22 @@ const ScrollDownArrow: React.FC<IScrollDownArrowProps> = ({scrollRef, titleRef})
       scrollRef?.current?.scrollTo({left: 0, top: (secondSectionTop - titleHeight - 100), behavior: "smooth"});
     }
 
+    const absoluteCentering: SxProps = {
+      position: 'absolute',
+      mL: 'auto',
+      mR: 'auto',
+      left: '0',
+      right: '0',
+      textAlign: 'center'
+    }
+
    return (
       <Grow in={true} timeout={1000} style={{ transitionDelay: `500ms`}}>
-         <IconButton onClick={onDownArrowClick} sx={{position: 'absolute', background: '#858282', boxShadow: 3, zIndex: 1, right: '50%', transform: 'translateX(-50%)', bottom: '1rem', animation: `${downArrowAnimation} 1.25s infinite`}}>
-         <ArrowDownwardIcon />
-         </IconButton>
+        <Box sx={{...absoluteCentering, bottom: '1rem'}}>
+          <IconButton onClick={onDownArrowClick} sx={{background: '#858282', boxShadow: 3, zIndex: 1, animation: `${downArrowAnimation} 1.25s infinite`}}>
+          <ArrowDownwardIcon />
+          </IconButton>
+        </Box>
       </Grow>
    );
 };
