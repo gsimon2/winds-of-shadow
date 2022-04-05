@@ -94,12 +94,12 @@ function App() {
       <ParallaxContainer imagePath={titleBackground} >
           <Box sx={{ ...title, ...centerContent, ...(isStickyTitle ? stickyTitle : nonStickyTitle), flexDirection: 'column'}} ref={titleRef}>
             <Grow in={true} timeout={1000}>
-              <h1 id="title" style={{margin: 0, fontSize: isMobileView ? '4rem' : '7rem'}}>
+              <h1 id="title" style={{margin: 0, fontSize: isMobileView ? '4rem' : '7rem', textShadow: `0 1px ${CssConstants.darkGray}`}}>
                 Winds Of Shadow
               </h1>
             </Grow>
             <Grow in={true} timeout={1000}>
-              <p style={{position: "relative", fontSize: isMobileView ? '1.5rem' : '2rem', margin: 0}}>By Benjamin J Stegenga</p>
+              <p style={{position: "relative", fontSize: '3rem', margin: 0, textShadow: `0 1px ${CssConstants.darkGray}`}}>By Benjamin J Stegenga</p>
             </Grow>
           </Box>
       </ParallaxContainer>

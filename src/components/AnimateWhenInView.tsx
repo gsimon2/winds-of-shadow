@@ -14,7 +14,7 @@ const swellAnimation = keyframes`
   }
 `
 
-const AnimateWhenInView: React.FC = ({children}) => {
+const AnimateWhenInView: React.FC<IAnimateWhenInViewProps> = ({children}) => {
    const [isInView, setIsInView] = useState(false);
 
    return (
@@ -25,5 +25,9 @@ const AnimateWhenInView: React.FC = ({children}) => {
       </InView>
    );
 };
+
+export interface IAnimateWhenInViewProps {
+   threshold?: number
+}
 
 export default AnimateWhenInView;

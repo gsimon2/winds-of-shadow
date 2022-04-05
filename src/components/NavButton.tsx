@@ -24,7 +24,7 @@ const NavButton: React.FC<INavButtonProps> = ({scrollRef}) => {
   }
 
   return (
-    <Box sx={{position: 'absolute', right: isMobileView ? '1.25rem' : '1.75rem', background: '#858282', zIndex: 1, top: '0.5rem', boxShadow: 3, borderRadius: '0.5rem'}}>
+    <Box sx={{position: 'absolute', right: isMobileView ? '1.25rem' : '1.75rem', background: CssConstants.darkGray, zIndex: 1, top: '0.5rem', boxShadow: 3, borderRadius: '0.5rem'}}>
       <IconButton id='navigation-button' aria-label='Navigation Menu' size='large' onClick={handleMenuButtonClick} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} aria-controls={open ? 'navigation-menu' : undefined}>
         <MenuIcon />
       </IconButton>
