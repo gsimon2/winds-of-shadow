@@ -14,7 +14,6 @@ const NavButton: React.FC<INavButtonProps> = ({scrollRef}) => {
 
   const onMenuItemClick = (elementId: string) => {
     const element = document.getElementById(elementId);
-    console.log(element?.offsetTop)
     scrollRef?.current?.scrollTo({left: 0, top: element?.offsetTop ?? 0, behavior: "smooth"});
     handleMenuClose();
   }

@@ -65,7 +65,6 @@ function App() {
     const target = (event.target as HTMLDivElement);
     const titleHeight = titleRef.current?.clientHeight ?? 0;
     const isTitleAtTop = target.scrollTop >= ( (target.offsetHeight / 2) - (titleHeight / 2) );
-    console.log(target.scrollTop, target.scrollHeight,  target.clientHeight, target.scrollTop / (target.scrollHeight - target.clientHeight))
     setScrollPercent(target.scrollTop / (target.scrollHeight - target.clientHeight) * 100);
 
     if (isTitleAtTop && !isStickyTitle) {
