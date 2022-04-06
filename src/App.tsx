@@ -13,6 +13,7 @@ import { CssConstants } from './constants/CssConstants';
 import SocialMediaStack from './components/SocialMediaStack';
 import GrowWhenInView from './components/GrowWhenInView';
 import AnimateWhenInView from './components/AnimateWhenInView';
+import ScrollProgress from './components/ScrollProgress';
 
 const title: React.CSSProperties = {
   display: 'flex',
@@ -55,6 +56,7 @@ function App() {
   const isMobileView = useMediaQuery(`(max-width:${CssConstants.mobileBreakpoint})`);
   const [isStickyTitle, setIsStickyTitle] = useState(false);
   const [showDownArrow, setShowDownArrow] = useState(true);
+  const [scrollPercent, setScrollPercent] = useState(0);
   const titleRef = createRef<HTMLDivElement>();
   const scrollRef = createRef<HTMLDivElement>();
   const amazonUrl = "https://www.amazon.com/Winds-Shadow-Wind-Whispers-Book/dp/B096HS1XM1";
@@ -63,6 +65,8 @@ function App() {
     const target = (event.target as HTMLDivElement);
     const titleHeight = titleRef.current?.clientHeight ?? 0;
     const isTitleAtTop = target.scrollTop >= ( (target.offsetHeight / 2) - (titleHeight / 2) );
+    console.log(target.scrollTop, target.scrollHeight,  target.clientHeight, target.scrollTop / (target.scrollHeight - target.clientHeight))
+    setScrollPercent(target.scrollTop / (target.scrollHeight - target.clientHeight) * 100);
 
     if (isTitleAtTop && !isStickyTitle) {
       setIsStickyTitle(true);
@@ -193,6 +197,8 @@ function App() {
       <Box sx={{color: 'white', textAlign: 'center'}}>
         <p>Copyright © BenjaminJStegenga. All rights reserved.</p>
       </Box>
+
+      <ScrollProgress scrollPercent={scrollPercent} />
     </Box>
   )
 }
